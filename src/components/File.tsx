@@ -27,6 +27,12 @@ const File: React.FC<Props> = ({author, id, name}) => {
           bg={useColorModeValue('white', 'gray.800')}
           boxShadow={'2xl'}
           rounded={'md'}
+          cursor="pointer"
+          transition="200ms ease-in"
+          _hover={{
+            transform: 'scale(110% )',
+            boxShadow: 'lg',
+        }}
           overflow={'hidden'}>
           <Image
             h={'120px'}

@@ -16,7 +16,7 @@ export const App = () => (
   <ChakraProvider theme={theme}>
     <BrowserRouter>
       <Routes>
-        <Route path="/app/*" element={<Main/>}/>
+        <Route path="/*" element={<Main/>}/>
       </Routes>
     </BrowserRouter>
   </ChakraProvider>

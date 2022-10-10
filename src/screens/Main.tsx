@@ -2,7 +2,9 @@ import React from 'react'
 import { Routes, Route } from "react-router-dom"
 import Sidebar from '../layout/Sidebar'
 import Home from '../pages/Home'
+import Login from '../pages/Login'
 import MyFiles from '../pages/MyFiles'
+import Register from '../pages/Register'
 
 const Main: React.FC<any> = () => {
   return (
@@ -10,6 +12,8 @@ const Main: React.FC<any> = () => {
         <Routes>
           <Route index element={<Home/>} />
           <Route path="/files/my" element={<MyFiles/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/login" element={<Login/>} />
         </Routes>
     </Sidebar>
   )
