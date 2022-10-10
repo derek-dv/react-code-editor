@@ -81,7 +81,7 @@ const File: React.FC<Props> = ({author, id, name}) => {
                     color={'white'}
                     rounded={'md'}
                     _hover={{
-                        transform: 'translateY(-2px)',
+                        transform: 'translateY(-2px )',
                         boxShadow: 'lg',
                     }}
                 >
