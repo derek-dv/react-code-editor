@@ -9,7 +9,6 @@ import {
   VStack,
   Icon,
   useColorModeValue,
-  Link,
   Drawer,
   DrawerContent,
   Text,
@@ -32,6 +31,7 @@ import {
   FiChevronDown,
   FiSave,
 } from 'react-icons/fi';
+import { Link } from "react-router-dom";
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
@@ -39,13 +39,14 @@ import { ColorModeSwitcher } from '../ColorModeSwitcher';
 interface LinkItemProps {
   name: string;
   icon: IconType;
+  to: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Home', icon: FiHome },
-  { name: 'Saved code', icon: FiSave },
-  { name: 'Public', icon: FiCode },
-  { name: 'Favourites', icon: FiStar },
-  { name: 'Settings', icon: FiSettings },
+  { name: 'Home', icon: FiHome, to: "/app" },
+  { name: 'Saved code', icon: FiSave, to: "/app/files/my" },
+  { name: 'Public', icon: FiCode, to: "/app/files" },
+  { name: 'Favourites', icon: FiStar, to: "/app/files/fav" },
+  { name: 'Settings', icon: FiSettings, to: "/app/settings" },
 ];
 
 export default function Sidebar({
@@ -103,7 +104,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} to={link.to}>
           {link.name}
         </NavItem>
       ))}
@@ -114,10 +115,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 interface NavItemProps extends FlexProps {
   icon: IconType;
   children: ReactText;
+  to: string;
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, to, ...rest }: NavItemProps) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link to={to} style={{ textDecoration: 'none' }}>
       <Flex
         align="center"
         p="4"

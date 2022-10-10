@@ -9,7 +9,7 @@ const Main: React.FC<any> = () => {
     <Sidebar>
         <Routes>
           <Route index element={<Home/>} />
-          <Route path="/files/mine" element={<MyFiles/>} />
+          <Route path="/files/my" element={<MyFiles/>} />
         </Routes>
     </Sidebar>
   )
