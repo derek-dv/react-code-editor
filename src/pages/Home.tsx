@@ -1,4 +1,4 @@
-import { Box, Button, Flex, FormLabel, Input, Text, useColorModeValue } from '@chakra-ui/react'
+import { Box, Button, Flex, FormLabel, Heading, Input, Text, useColorModeValue } from '@chakra-ui/react'
 import Editor from '@monaco-editor/react';
 import React from 'react'
 import LanguageSelector from '../components/LanguageSelector';
@@ -13,7 +13,7 @@ const Home: React.FC<Props> = ({ title, fileId, newfile }) => {
     const lightMode = useColorModeValue(0, 1)
     return (
         <Box>
-            <Text fontWeight="bold" mb="2">{title ? title : "New file"}</Text>
+            <Heading mb="2">New file</Heading>
             <Flex gap="2">
                 <Editor
                     height="85vh"
