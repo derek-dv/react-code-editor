@@ -12,6 +12,7 @@ import {
     Text,
     useColorModeValue,
   } from '@chakra-ui/react';
+import { FaGoogle } from 'react-icons/fa';
   
   export default function Login() {
     return (
@@ -40,7 +41,7 @@ import {
                 <FormLabel>Password</FormLabel>
                 <Input type="password" />
               </FormControl>
-              <Stack spacing={10}>
+              <Stack spacing={5}>
                 <Stack
                   direction={{ base: 'column', sm: 'row' }}
                   align={'start'}
@@ -56,6 +57,7 @@ import {
                   }}>
                   Sign in
                 </Button>
+                <Button colorScheme="red" leftIcon={<FaGoogle/>}>Sign in with Google</Button>
               </Stack>
             </Stack>
           </Box>
