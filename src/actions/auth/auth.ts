@@ -2,6 +2,8 @@ import * as types from "./types";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateProfile } from "firebase/auth"
 import app from '../../firebase';
 import { Dispatch } from "redux";
+import { addAlert, removeAlert } from "../alerts/alerts";
+import { uuidv4 } from "@firebase/util";
 
 export const login = (email: string, password: string) => async (dispatch: Dispatch<any>) => {
   const auth = getAuth(app);
@@ -16,7 +18,12 @@ export const login = (email: string, password: string) => async (dispatch: Dispa
       payload: {
         user: authObj.user
       }
-    })
+    });
+    const alertId = uuidv4();
+    dispatch(addAlert(alertId, "success", "Login successful"));
+    setTimeout(()=>{
+      dispatch(removeAlert(alertId));
+    }, 10000);
   } catch (error: any) {
     console.error(error.message);
     dispatch({
@@ -24,7 +31,12 @@ export const login = (email: string, password: string) => async (dispatch: Dispa
       payload: {
         error: error.message
       }
-    })
+    });
+    const alertId = uuidv4();
+    dispatch(addAlert(alertId, "error", error.message));
+    setTimeout(()=>{
+      dispatch(removeAlert(alertId));
+    }, 10000);
   }
 }
 

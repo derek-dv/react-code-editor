@@ -3,7 +3,7 @@ import { User } from "firebase/auth";
 import * as allAuth from "../actions/auth/types";
 
 export interface AuthState {
-  user?: Userw | null;
+  user?: User | null;
   isAuthenticated?: boolean | null;
   loading?: boolean;
   googleLoading?: boolean;

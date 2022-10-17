@@ -2,13 +2,19 @@ import { Box, FormLabel, Select } from '@chakra-ui/react'
 import React from 'react'
 import languages from '../utils/languages'
 
-const LanguageSelector: React.FC = () => {
+interface Props {
+  set:  React.Dispatch<React.SetStateAction<string>>
+}
+
+const LanguageSelector: React.FC<Props> = ({set}) => {
   return (
     <Box>
         <FormLabel mt="2" htmlFor='language'>Language</FormLabel>
-        <Select id="language">
+        <Select id="language" onChange={(e)=>{
+          set(e.target.value)
+        }}>
             {languages.map(({id, language})=>(
-                <option key={id}>{language}</option>
+                <option key={id} value={id}>{language}</option>
             ))}
         </Select>
     </Box>
